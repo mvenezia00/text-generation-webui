@@ -18,8 +18,8 @@ params = {
     'model_id': 'v3_en',
     'sample_rate': 48000,
     'device': 'cpu',
-    'show_text': False,
-    'autoplay': True,
+    'show_text': True,
+    'autoplay': False,
     'voice_pitch': 'medium',
     'voice_speed': 'medium',
     'local_cache_path': ''  # User can override the default cache path to something other via settings.json
@@ -113,7 +113,7 @@ def output_modifier(string):
     if string == '':
         string = '*Empty reply, try regenerating*'
     else:
-        output_file = Path(f'extensions/silero_tts/outputs/{shared.character}_{int(time.time())}.wav')
+        output_file = Path(f'extensions/silero_tts/outputs/messvocale.wav')
         prosody = '<prosody rate="{}" pitch="{}">'.format(params['voice_speed'], params['voice_pitch'])
         silero_input = f'<speak>{prosody}{xmlesc(string)}</prosody></speak>'
         model.save_wav(ssml_text=silero_input, speaker=params['speaker'], sample_rate=int(params['sample_rate']), audio_path=str(output_file))
