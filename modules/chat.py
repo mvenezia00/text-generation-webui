@@ -210,7 +210,11 @@ def chatbot_wrapper(text, state, regenerate=False, _continue=False):
 
         if reply is not None:
             cumulative_reply = reply
-
+            #####MOD MAMMUU#####
+            with open('risposta.txt', 'w', encoding='utf8') as f:
+                f.write(cumulative_reply)
+                f.write('\n')
+            #####FINE MOD MAMMUU#####
     yield shared.history['visible']
 
 
