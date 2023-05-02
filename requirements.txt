@@ -22,3 +22,4 @@ https://github.com/abetlen/llama-cpp-python/releases/download/v0.1.41/llama_cpp_
 flask
 requests
 xformers
+flask_restful
